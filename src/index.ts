@@ -108,7 +108,7 @@ Using the "+" button at top left,
 you can import osu! mania 4k beatmaps. (.osz)`
 
 const init = async () => {
-	const data = await fetch('/data.json').then(r => r.json())
+	const data = await fetch('data.json').then(r => r.json())
 	const songMenus: PIXI.Container[] = []
 
 	const addSong = async (blob: Blob) => {
