@@ -26,7 +26,7 @@ export interface KeyEventHelper {
 	release(key: KeyEventHelper, event: KeyboardEvent): void
 	unsubscribe(): void
 }
-export function keyboardHelper(value: string): KeyEventHelper {
+export const keyboardHelper = (value: string): KeyEventHelper => {
 	// modified from https://github.com/kittykatattack/learningPixi#keyboard-movement
 	const key: KeyEventHelper = {
 		value,

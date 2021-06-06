@@ -9,7 +9,7 @@ configure({
 })
 
 const size = new SizeHandler()
-const app = new PIXI.Application({ width: size.width, height: size.height, backgroundColor: 0x0 })
+const app = new PIXI.Application({ width: size.width, height: size.height, backgroundColor: 0x000000 })
 document.body.append(app.view)
 app.view.focus()
 
@@ -152,7 +152,6 @@ const init = async () => {
 				swapContainer(app.stage, mainMenu, gameContainer)
 				done.then(result => {
 					// game done: gameContainer -> resultContainer
-					console.log(result)
 					const { container: resultContainer, done } = resultStage(size, beatmap, result)
 					swapContainer(app.stage, gameContainer, resultContainer)
 					done.then(() => {
@@ -208,7 +207,8 @@ const init = async () => {
 	})
 	menuOverlay.addChild(helpBtn)
 
-	const selectFile = (fileEl: HTMLInputElement) => <Promise<File>>new Promise((resolve, reject) => {
+	const selectFile = (fileEl: HTMLInputElement): Promise<File> =>
+		new Promise((resolve, reject) => {
 			fileEl.onchange = e => {
 				if (fileEl.files!.length >= 1) {
 					resolve(fileEl.files!.item(0)!)

@@ -89,7 +89,7 @@ export const gamingStage = (
 	outCircleMask.drawCircle(0, 0, size.radius)
 	inner.addChild(outCircleMask)
 
-	function drawBar(g: PIXI.Graphics, color: number, y: number = 0) {
+	const drawBar = (g: PIXI.Graphics, color: number, y: number = 0) => {
 		g.beginFill(color)
 		g.drawRect(-BAR_WIDTH / 2, y, BAR_WIDTH, size.radius - y)
 	}
@@ -126,7 +126,7 @@ export const gamingStage = (
 	centerCircle.zIndex = 100
 	inner.addChild(centerCircle)
 
-	function drawNote(g: PIXI.Graphics, note: NoteState, color: number) {
+	const drawNote = (g: PIXI.Graphics, note: NoteState, color: number) => {
 		const noteLen = ((note.end - note.start) / ntime) * CIRCLE_LINE_RADIUS
 		g.beginFill(color)
 		g.drawRect(-BAR_WIDTH / 2, 0, BAR_WIDTH, noteLen)
@@ -136,7 +136,7 @@ export const gamingStage = (
 	tipMsg.y = 300
 	outer.addChild(tipMsg)
 	let _tipMsgIt: number = 0
-	function showTipMessage(msg: string, color: number, delay: number = 1000) {
+	const showTipMessage = (msg: string, color: number, delay: number = 1000) => {
 		// Perfect, Great, Good, Miss
 		clearTimeout(_tipMsgIt)
 		tipMsg.text = msg
@@ -153,7 +153,7 @@ export const gamingStage = (
 	comboText.x = -comboText.width / 2
 	comboText.y = -300
 	outer.addChild(comboText)
-	function updateCombo(newCombo: number) {
+	const updateCombo = (newCombo: number) => {
 		combo = newCombo
 		comboText.text = `${combo}x`
 		comboText.x = -comboText.width / 2
@@ -167,7 +167,7 @@ export const gamingStage = (
 	scoreText.x = -scoreText.width / 2
 	scoreText.y = -300 + comboText.height
 	outer.addChild(scoreText)
-	function updateScore(newScore: number) {
+	const updateScore = (newScore: number) => {
 		score = newScore
 		scoreText.text = `${score}`
 		scoreText.x = -scoreText.width / 2
@@ -181,7 +181,7 @@ export const gamingStage = (
 	const ticker = new PIXI.Ticker()
 	const keyHelpers: KeyEventHelper[] = []
 
-	function startGame() {
+	const startGame = () => {
 		for (const [lane, key] of KEYS.entries()) {
 			const helper = keyboardHelper(key)
 			helper.press = () => {
