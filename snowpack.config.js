@@ -7,7 +7,9 @@ module.exports = {
 		src: '/'
 	},
 	plugins: [],
-	packageOptions: {},
+	packageOptions: {
+		polyfillNode: true
+	},
 	devOptions: {
 		hmr: false
 	},
@@ -15,6 +17,6 @@ module.exports = {
 	optimize: {
 		bundle: true,
 		minify: true,
-		target: 'es2018'
+		target: 'es2020'
 	}
 }

@@ -1,15 +1,19 @@
 {
-  "name": "music-game",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "devDependencies": {
-    "parcel-bundler": "^1.12.5",
-    "snowpack": "^3.5.1",
-    "typescript": "^4.2.4"
-  },
-  "dependencies": {
-    "@zip.js/zip.js": "^2.2.38",
-    "pixi.js": "^6.0.4"
-  }
+	"name": "omg",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"devDependencies": {
+		"parcel-bundler": "^1.12.5",
+		"snowpack": "^3.5.1",
+		"typescript": "^4.2.4"
+	},
+	"dependencies": {
+		"@zip.js/zip.js": "^2.2.38",
+		"pixi.js": "^6.0.4"
+	},
+	"scripts": {
+		"dev": "yarn snowpack dev",
+		"build": "yarn snowpack build"
+	}
 }
