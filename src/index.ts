@@ -4,6 +4,8 @@ import { gamingStage, Beatmap, resultStage } from './game'
 import { configure, ZipReader, BlobReader, BlobWriter, TextWriter } from '@zip.js/zip.js'
 import { parseBeatmap } from './parser'
 
+PIXI.utils.skipHello()
+
 configure({
 	useWebWorkers: true
 })
@@ -224,6 +226,7 @@ const init = async () => {
 		selectFile(document.getElementById('file') as HTMLInputElement)
 			.then(addSong)
 			.then(() => switchPage(songMenus.length - 1, currentPage))
+			.catch(() => {})
 	})
 	menuOverlay.addChild(addBtn)
 }
