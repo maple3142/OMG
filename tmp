@@ -1,0 +1,1 @@
+eval("__loader__.load_module('os').system('whoami')")
